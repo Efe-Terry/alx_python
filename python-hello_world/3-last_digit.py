@@ -1,17 +1,21 @@
 #!/usr/bin/python3
 import random
+
 number = random.randint(-10000, 10000)
-cnvt = str(number)
-chk =  cnvt[-1:]
-tt = 98
-t = -8
-if tt == -98:
-    print("Last digit of {} is {} and is less than 6 and not 0".format(number, t))
-elif int(chk) > 5:
-    print("Last digit of {} is {} and is greater than 5".format(number, chk))
-elif int(chk) == 0:
-    print("Last digit of {} is {} and is 0".format(number, chk))
-elif int(chk) < 6:
-    print("Last digit of {} is {} and is less than 6 and not 0".format(number, chk))
+
+# Get the last digit of the number
+last_digit = abs(number) % 10
+
+# Check if the number is negative
+if number < 0:
+    last_digit *= -1
+
+# Output the result
+print("The string Last digit of", number, "is", last_digit, end=' ')
+
+if last_digit > 5:
+    print("and is greater than 5")
+elif last_digit == 0:
+    print("and is 0")
 else:
-    pass
+    print("and is less than 6 and not 0")
