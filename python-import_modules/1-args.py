@@ -4,7 +4,7 @@ def print_arg(argv):
     length = len(argv) - 1
 
     if length == 0:
-        print("{} argument.".format(length))
+        print("{} arguments.".format(length))
         return
     else:
         if length == 1:
