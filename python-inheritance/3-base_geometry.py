@@ -10,5 +10,5 @@ class BaseGeometry:
     '''
     def __dir__(self):
         attributes = super().__dir__()
-        return [attr for attr in attributes if attr != '__init_subclass__']
+        return [attr for attr in attributes if attr not in ('__init_subclass__', 'integer_validator')]
     pass
