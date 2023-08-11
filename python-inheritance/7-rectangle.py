@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 """@BaseGeometry class imported"""
-
 BaseGeometry = __import__('6-rectangle.py').BaseGeometry
 
 """
