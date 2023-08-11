@@ -4,11 +4,13 @@ This is an empty BaseGeometry class.
 """
 
 
-class BaseGeometryMeta(type):
-    def __dir__(self):
-        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+class NoInitSubclassMeta(type):
+    def __init__(cls, name, bases, attrs):
+        if '__init_subclass__' in attrs:
+            del attrs['__init_subclass__']
+        super().__init__(name, bases, attrs)
 
-class BaseGeometry(metaclass=BaseGeometryMeta):
+class BaseGeometry(metaclass=NoInitSubclassMeta):
     ''' 
     Class: BaseGeometry
     '''
