@@ -9,7 +9,7 @@ class BaseGeometry:
     Class: BaseGeometry
     '''
 
-    pass
-
-    def __dir__(cls):
-        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+    def __dir__(self):
+        attributes = super().__dir__()
+        new_attribute_list = [item for item in attributes if item is "__init__subclass__"]
+        return new_attribute_list
