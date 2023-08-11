@@ -10,6 +10,9 @@ class BaseGeometry:
     Class: BaseGeometry
     '''
 
-    def __dir__(self):
-        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+    def __dir__(cls):
+        '''
+        This is to exclude an attribute from printing
+        '''
+        return [attribute for attribute in super().__dir__() if attribute != '__init__']
 
