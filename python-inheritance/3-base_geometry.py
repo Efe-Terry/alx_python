@@ -9,7 +9,5 @@ class BaseGeometry:
     Class: BaseGeometry
     '''
 
-    pass
-
     def __dir__(self):
         return [attribute for attribute in super().__dir__() if attribute != "__init_subclass__"]
