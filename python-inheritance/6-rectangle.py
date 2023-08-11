@@ -6,6 +6,12 @@ BaseGeometry = __import__('5-base_geometry').BaseGeometry
 
 """Defines a class Rectangle that inherits from BaseGeometry."""
 
+class BaseMetaClass(type):
+    def __dir__(cls):
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+class BaseGeometry(metaclass=BaseMetaClass):
+    pass
+
 class Rectangle(BaseGeometry):
 
     """Represent a rectangle using BaseGeometry."""
