@@ -10,13 +10,6 @@ class Rectangle(BaseGeometry):
 
     """Represent a rectangle using BaseGeometry."""
 
-    def __dir__(cls):
-
-        '''
-        This is to exclude an attribute from printing
-        '''
-
-        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
 
     def __init__(self, width, height):
 
