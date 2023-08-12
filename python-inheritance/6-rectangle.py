@@ -28,6 +28,3 @@ class Rectangle(metaclass=BaseGeometry):
         self.integer_validator("height", height)
         self.__height = height
 
-
-        def __dir__(cls):
-            return [attribute for attribute in super().__dir__() if attribute != '__init__']
