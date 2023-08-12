@@ -2,7 +2,40 @@
 
 """@BaseGeometry class imported"""
 
-BaseGeometry = __import__('5-base_geometry').BaseGeometry
+"""Defines a base geometry class BaseGeometry."""
+
+class BaseMetaClass(type):
+    
+    '''
+    Class: 
+    '''
+    
+    def __dir__(cls):
+        
+        '''
+        This is to exclude an attribute from printing
+        '''
+
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+
+
+class BaseGeometry(metaclass=BaseMetaClass):
+
+    """Represent base geometry."""
+
+    def __dir__(cls):
+
+        '''
+        This is to exclude an attribute from printing
+        '''
+
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+
+    def area(self):
+
+        """Not implemented."""
+        
+        raise Exception("area() is not implemented")
 
 """Defines a class Rectangle that inherits from BaseGeometry."""
 
