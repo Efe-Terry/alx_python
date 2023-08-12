@@ -2,22 +2,7 @@
 
 """@BaseGeometry class imported"""
 
-"""Defines a base geometry class BaseGeometry."""
-
-class BaseMetaClass(type):
-    
-    '''
-    Class: 
-    '''
-    
-    def __dir__(cls):
-        
-        '''
-        This is to exclude an attribute from printing
-        '''
-
-        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
-
+BaseGeometry = __import__('5-base_geometry').BaseGeometry
 
 class BaseGeometry(metaclass=BaseMetaClass):
 
