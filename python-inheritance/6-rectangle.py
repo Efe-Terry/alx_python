@@ -4,9 +4,14 @@
 
 BaseGeometry = __import__('5-base_geometry').BaseGeometry
 
+class BaseGeometry(type):
+
+    def __dir__(cls):
+        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+
 """Defines a class Rectangle that inherits from BaseGeometry."""
 
-class Rectangle(BaseGeometry):
+class Rectangle(metaclass=BaseGeometry):
 
     """Represent a rectangle using BaseGeometry."""
 
@@ -23,3 +28,6 @@ class Rectangle(BaseGeometry):
         self.integer_validator("height", height)
         self.__height = height
 
+
+        def __dir__(cls):
+            return [attribute for attribute in super().__dir__() if attribute != '__init__']
