@@ -4,7 +4,7 @@ and display in a special format.
 
 It retrieves employees name, task completed with their titles.
 """
-import csv
+import json
 import requests
 import sys
 
@@ -29,23 +29,19 @@ if __name__ == "__main__":
 #Get employee information
     employeeName = profileJson_Data['username']
 
-    dataList = []
+    dataList = []# Empty list to store the dictionaries
 
     for data in todoJson_Data:
-        dataDict = {"userId":data['userId'], "name":employeeName, "completed":data['completed'], "title":data['title']}
+        dataDict = {"task":data['title'], "completed":data['completed'], "username":employeeName}
         dataList.append(dataDict)
 
-    # Specify the CSV file path
-    csv_file_path = '{}.csv'.format(todoJson_Data[0]['userId'])
+# A dictionary of list of dictionaries to be exported to JSON
+    outputData = {profileJson_Data['id']: dataList}
 
-    # Define the field names (column headers)
-    fieldnames = ["userId", "name", "completed", "title"]
+# Specify the JSON file path
+    json_file_path = '{}.json'.format(todoJson_Data[0]['userId'])
 
-    # Open the CSV file in write mode
-    with open(csv_file_path, 'w', newline='') as csv_file:
-        # Create a CSV writer
-        csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
-
-        # Write the data rows
-        for row in dataList:
-            csv_writer.writerow(row)
+# Open the JSON file in write mode
+    with open(json_file_path, 'w') as json_file:
+    # Serialize and write the data to the JSON file
+        json.dump(outputData, json_file)
